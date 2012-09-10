@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<!--
+/**
+ * @category Shopwerft
+ * @package Shopwerft_${Modulname}
+ * @authors Shopwerft GmbH <info@shopwerft.com>
+ * @developer Benjamin Wunderlich <b.wunderlich@shopwerft.com, http://www.shopwerft.com/>
+ * @version 0.1.0
+ * @copyright Shopwerft GmbH
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <dev translate="label" module="swLogMailer">
+            <groups>
+                <log translate="label" module="swLogMailer">
+                    <fields>
+                        <header translate="label">
+                            <label>Log Mailer</label>
+                            <comment></comment>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </header>
+                        <logmailingactive translate="label">
+                            <label>Activated</label>
+                            <comment>Set this to "yes" to activate the modules functionality.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logmailingactive>
+                        <logfiles translate="label">
+                            <label>Observed logfiles</label>
+                            <comment>Enter here only the names of the log files to observe (one per line).</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>120</sort_order>
+                            <depends>
+                                <logmailingactive>1</logmailingactive>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logfiles>
+                        <receivers translate="label">
+                            <label>Notification receivers</label>
+                            <comment>Enter here the email addresses of the receivers of the log files (one per line).</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>130</sort_order>
+                            <depends>
+                                <logmailingactive>1</logmailingactive>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </receivers>
+                    </fields>
+                </log>
+            </groups>
+        </dev>
+    </sections>
+
+</config>
