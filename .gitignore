@@ -31,7 +31,7 @@ app/etc/local.xml.template
 app/.htaccess
 app/locale/en_US/
 app/Mage.php
-cron.php
+/cron.php
 cron.sh
 downloader/
 errors/
