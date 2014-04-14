@@ -1,41 +1,57 @@
 <?xml version="1.0"?>
 <config>
+
     <modules>
         <Shopwerft_LogMailer>
-            <version>0.1.0</version>
+            <version>1.0.0</version>
         </Shopwerft_LogMailer>
     </modules>
+
     <global>
         <models>
-            <swlogmailer>
+            <shopwerft_logmailer>
                 <class>Shopwerft_LogMailer_Model</class>
-            </swlogmailer>
+            </shopwerft_logmailer>
         </models>
         <helpers>
-            <swlogmailer>
+            <shopwerft_logmailer>
                 <class>Shopwerft_LogMailer_Helper</class>
-            </swlogmailer>
+            </shopwerft_logmailer>
         </helpers>
     </global>
 
     <adminhtml>
         <translate>
             <modules>
-                <Shopwerft_LogMailer>
+                <shopwerft_logmailer>
                     <files>
                         <default>Shopwerft_LogMailer.csv</default>
                     </files>
-                </Shopwerft_LogMailer>
+                </shopwerft_logmailer>
             </modules>
         </translate>
     </adminhtml>
 
+    <default>
+        <dev>
+            <log>
+                <logmailingactive>0</logmailingactive>
+                <logfiles/>
+                <receivers/>
+            </log>
+        </dev>
+    </default>
+
     <crontab>
         <jobs>
-            <logmailer_send_log>
-                <schedule><cron_expr>0 6 * * *</cron_expr></schedule>
-                <run><model>swlogmailer/cron::sendLog</model></run>
-            </logmailer_send_log>
+            <shopwerft_logmailer_send_log>
+                <schedule>
+                    <cron_expr>0 6 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>shopwerft_logmailer/cron::sendLog</model>
+                </run>
+            </shopwerft_logmailer_send_log>
         </jobs>
     </crontab>
 

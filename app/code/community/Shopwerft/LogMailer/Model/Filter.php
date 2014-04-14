@@ -1,18 +1,19 @@
 <?php
-
 /**
  * @category Shopwerft
  * @package Shopwerft_LogMailer
  * @authors Shopwerft GmbH <info@shopwerft.com>
  * @developer Benjamin Wunderlich <b.wunderlich@shopwerft.com, http://www.shopwerft.com/>
- * @version 0.1.0
+ * @version 1.0.0
  * @copyright Shopwerft GmbH
  * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Shopwerft_LogMailer_Model_Filter extends Mage_Core_Model_Abstract
+class Shopwerft_LogMailer_Model_Filter
+    extends Mage_Core_Model_Abstract
 {
 
+    /** @var array */
     protected $_files = array();
 
     /**
@@ -69,11 +70,9 @@ class Shopwerft_LogMailer_Model_Filter extends Mage_Core_Model_Abstract
             if($linesCount == 0) {
                 $resultLines .= "---";
             }
-
         }
 
         return $resultLines;
     }
-
 
 }

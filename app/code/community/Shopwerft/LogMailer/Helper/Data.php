@@ -1,16 +1,16 @@
 <?php
-
 /**
  * @category Shopwerft
  * @package Shopwerft_LogMailer
  * @authors Shopwerft GmbH <info@shopwerft.com>
  * @developer Benjamin Wunderlich <b.wunderlich@shopwerft.com, http://www.shopwerft.com/>
- * @version 0.1.0
+ * @version 1.0.0
  * @copyright Shopwerft GmbH
  * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Shopwerft_LogMailer_Helper_Data extends Mage_Core_Helper_Abstract
+class Shopwerft_LogMailer_Helper_Data
+    extends Mage_Core_Helper_Abstract
 {
 
     const CONFIG_PATH_ACTIVE         = 'dev/log/logmailingactive';
@@ -20,12 +20,12 @@ class Shopwerft_LogMailer_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Check if sending out of log files is enabled.
      *
-     * @param Mage_Core_Model_Store $store
+     * @param null|int|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function isActive(Mage_Core_Model_Store $store = null)
+    public function isActive($store = null)
     {
-        return (bool) Mage::getStoreConfig(self::CONFIG_PATH_ACTIVE, $store);
+        return Mage::getStoreConfigFlag(self::CONFIG_PATH_ACTIVE, $store);
     }
 
     /**
@@ -51,4 +51,5 @@ class Shopwerft_LogMailer_Helper_Data extends Mage_Core_Helper_Abstract
         $config = Mage::getStoreConfig(self::CONFIG_PATH_RECEIVERS, $store);
         return array_map('trim', explode("\n", $config));
     }
+
 }
